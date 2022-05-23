@@ -1,0 +1,14 @@
+<nav class="menu nav__main--menu justify-content-between d-flex align-items-center" aria-labelledby="nav_main">
+  <p id="nav_main" class="screen-reader">Header Navigation</p>
+  <LinkTo @route="index" class="menu-index">
+    <FaIcon @icon="photo-film" />Photo Shop
+  </LinkTo>
+  <LinkTo @route="checkout" class="menu-checkout relative">
+    <FaIcon @icon="shopping-cart" />
+    {{#if this.checkout.itemList.length }}
+      <span class="checkout_count d-inline-flex justify-content-center align-items-center">
+        {{this.itemCount}}
+      </span>
+    {{/if}}
+  </LinkTo>
+</nav>

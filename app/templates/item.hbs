@@ -1,0 +1,32 @@
+<ol class="breadcrumb mt-3 mb-0">
+  <li class="breadcrumb-item">
+    <LinkTo @route="index" class="menu-index">
+      <FaIcon @icon="home" />Home
+    </LinkTo>
+  </li>
+  <li class="breadcrumb-item">
+    <LinkTo @route="item" class="menu-item">
+      Photo {{this.model.id}}
+    </LinkTo>
+  </li>
+</ol>
+<div class="row item_container">
+  <div class="col-md-7 item_image relative mt-4 mb-4">
+    <img src="{{this.model.download_url}}" alt="Photo by {{this.model.author}}" />
+  </div>
+  <div class="col-md-5 item_content mt-4 mb-4">
+    <h2 class="title mb-0">Beautiful picture by: <br/>{{this.model.author}}</h2>
+    <div class="price pt-3">
+      <p class="original_price">${{this.price.original}}</p>
+      <p class="current_price bold">${{this.price.current}}</p>
+    </div>
+    <div class="sizes py-3 active-{{this.size}}">
+      <p class="mb-2">Please select a size for your picture:</p>
+      <input type="radio" id="small" name="sizes" value="small" {{on 'click' (fn this.onChangeSize 'small')}} checked><label for="small">Small</label>
+      <input type="radio" id="medium" name="sizes" value="medium" {{on 'click' (fn this.onChangeSize 'medium')}}><label for="medium">Medium</label>
+      <input type="radio" id="large" name="sizes" value="large" {{on 'click' (fn this.onChangeSize 'large')}}><label for="large">Large</label>
+      <input type="radio" id="xlarge" name="sizes" value="xlarge" {{on 'click' (fn this.onChangeSize 'xlarge')}}><label for="xlarge">X Large</label>
+    </div>
+    <input type="submit" value="Add to Cart" class="button" {{on 'click' this.addToCart}}>
+  </div>
+</div>

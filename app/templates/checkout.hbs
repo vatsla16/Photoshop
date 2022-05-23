@@ -1,0 +1,36 @@
+<main class="checkout mt-4">
+  <h1>Shopping Cart</h1>
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <LinkTo @route="index" class="menu-index">
+        <FaIcon @icon="home" />Home
+      </LinkTo>
+    </li>
+    <li class="breadcrumb-item">
+      <LinkTo @route="checkout" class="menu-checkout">
+        Shopping Cart
+      </LinkTo>
+    </li>
+  </ol>
+  {{#each this.checkout.itemList as |item index| }}
+    <div class="row checkout_item d-flex align-items-center mb-4">
+      <div class="col-md-3 checkout_item_image item_image relative">
+        <img src="{{item.image}}" alt="Photo by {{item.author}}" />
+      </div>
+      <div class="col-md-9 checkout_item_content">
+        <p class="bold title">Photo{{item.id}} by: {{item.author}}</p>
+        <p class="size">Size: {{item.size}}</p>
+        <p class="price">Price: {{item.price}}</p>
+        <input type="submit" value="Remove" class="button mb-4" {{on 'click' (fn this.removeItem index)}}>
+      </div>   
+    </div>
+  {{/each}}
+  <section class="checkout-amount mt-4 text-end w-50">
+    <div class="row">
+      <p class="col">Total</p>
+      <p class="col">{{this.total}}</p>
+    </div>
+    <input type="submit" value="Checkout" class="button mb-4">
+  </section>
+  
+</main>

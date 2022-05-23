@@ -1,0 +1,14 @@
+<h1 class="mb-4 mt-4">Your one stop shop for all of your photo-shoppin'</h1>
+<main class="row mt-4 mb-4">
+  {{#each @model as |pic|}}
+    <Photo @pic={{pic}}/>
+  {{/each}}
+  {{!-- Pagination not completed --}}
+  <div class="pagination py-3 d-flex justify-content-center align-items-center flex-row">
+    <ol class="pages">
+      <li class="page active"><p class="button">1</p></li>
+      <li class="page"><p class="button">2</p></li>
+      <li class="page"><p class="button" >3</p></li>
+    </ol>
+  </div>
+</main>
